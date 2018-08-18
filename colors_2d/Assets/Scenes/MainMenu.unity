@@ -462,7 +462,7 @@ GameObject:
   - component: {fileID: 507494486}
   - component: {fileID: 507494485}
   m_Layer: 5
-  m_Name: HighScoresButton
+  m_Name: HighScoreButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -889,7 +889,7 @@ GameObject:
   - component: {fileID: 1047121337}
   - component: {fileID: 1047121336}
   m_Layer: 5
-  m_Name: HighScoresText
+  m_Name: HighScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -945,7 +945,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: HIGH SCORES
+  m_Text: HIGH SCORE
 --- !u!222 &1047121337
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1546,7 +1546,7 @@ GameObject:
   - component: {fileID: 2124067735}
   m_Layer: 5
   m_Name: HighScoreMenu
-  m_TagString: Untagged
+  m_TagString: HighScoreMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1583,8 +1583,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76b359ef46a5244fac2201e6e9a1779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHighScoreText_: {fileID: 2137724255}
-  currentHighScore_: 0
+  mCurrentHighScore: 0
+  mCurrentHighScoreText: {fileID: 0}
 --- !u!1 &2134988042
 GameObject:
   m_ObjectHideFlags: 0
@@ -1672,7 +1672,7 @@ GameObject:
   - component: {fileID: 2137724255}
   m_Layer: 5
   m_Name: HighScoreText
-  m_TagString: Untagged
+  m_TagString: HighScoreText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

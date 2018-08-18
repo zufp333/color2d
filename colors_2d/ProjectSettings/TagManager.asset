@@ -9,6 +9,9 @@ TagManager:
   - Magenta
   - Pink
   - DeathMenu
+  - ScoreText
+  - HighScoreText
+  - HighScoreMenu
   layers:
   - Default
   - TransparentFX

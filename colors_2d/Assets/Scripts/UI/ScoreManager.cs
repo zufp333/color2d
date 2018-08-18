@@ -5,13 +5,16 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour {
 
-    public Text currentHighScoreText_;
-    [SerializeField] int currentHighScore_ = 0;
+    [SerializeField] int mCurrentHighScore = 0;
+    [SerializeField] Text mCurrentHighScoreText;
 
-    public void UpdateHighScore(int currentGameScore)
+    public void UpdateHighScore()
     {
-        // This function is called at the end of each game.
-        int scoreToSet = (currentGameScore > currentHighScore_) ? currentGameScore : currentHighScore_;
-        currentHighScoreText_.text = scoreToSet.ToString();
+        // Load current high score:
+        mCurrentHighScore = PlayerPrefs.GetInt("HighScore", 0);
+
+        GameObject highScoreTextGameObject = GameObject.FindGameObjectWithTag("HighScoreText");
+        Text highScoreText = highScoreTextGameObject.GetComponent<Text>();
+        mCurrentHighScoreText.text = mCurrentHighScore.ToString();
     }
 }

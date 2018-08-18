@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Enumerators;
 using UnityEngine.SceneManagement;
-using System.Linq;
+using UnityEngine.UI;
 
 namespace Enumerators {
 
@@ -16,25 +16,23 @@ public class GameManager : MonoBehaviour {
     [SerializeField] GameObject PlayerObject;
     [SerializeField] Camera gameCamera;
     [SerializeField] GameObject[] checkpoints;
-    [SerializeField] ScoreManager scoreManager;
 
     private bool hasAlreadyDied = false;
-    private int currentChekPoint = 0;
-    private int score = 0;
+    private int currentCheckPoint = 0;
+    private int mScore = 0;
 
 
 
     // Use this for initialization
     void Start()
     {
-        ScoreManager[] fooGroup = Resources.FindObjectsOfTypeAll<ScoreManager>();
-        Debug.Log(fooGroup[0].ToString());
- if (fooGroup.Length > 0) {
-   ScoreManager foo = fooGroup[0];
- }
+        //ScoreManager[] scoreManagers = Resources.FindObjectsOfTypeAll<ScoreManager>();
+        //Debug.Log(scoreManagers[0].ToString());
+        //if (scoreManagers.Length > 0) 
+        //    ScoreManager scoreManager = scoreManagers[0];
+
         // At start, choose a random color to the player:
         SetRandomColor();
-      
     }
 
     // Update is called once per frame
@@ -42,16 +40,20 @@ public class GameManager : MonoBehaviour {
     {
         checkOutOfBounds();
         checkCheckPoints();
-
-
     }
 
     private void checkCheckPoints(){
-        if(checkpoints[currentChekPoint].transform.position.y < playerCharacter.transform.position.y){
+        if(checkpoints[currentCheckPoint].transform.position.y < playerCharacter.transform.position.y){
             SetRandomColor();
-            currentChekPoint++;
-            score+=100;        
+            currentCheckPoint++;
+            UpdateScore();
         }
+    }
+    private void UpdateScore() {
+        mScore += 100;
+        GameObject scoreTextGameObject = GameObject.FindGameObjectWithTag("ScoreText");
+        Text scoreText = scoreTextGameObject.GetComponent<Text>();
+        scoreText.text = "SCORE: " + mScore;
     }
     private void checkOutOfBounds(){
         Vector3 screenPoint = gameCamera.WorldToViewportPoint(playerCharacter.transform.position);
@@ -61,21 +63,37 @@ public class GameManager : MonoBehaviour {
                 hasAlreadyDied = true;
             AudioSource sound = GetComponent<AudioSource>();
             sound.Play();
-            scoreManager.UpdateHighScore(score);
-            score = 0;
+            mScore = 0;
             Invoke("loadDeathMenu", 1.5f);
             }
         }
     }
 
+    public void InitDeathFlow() {
+        SaveHighScore();
+        loadDeathMenu();
+    }
 
-
-    public void loadDeathMenu(){
+    private void loadDeathMenu() {
         hasAlreadyDied = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
-public void collided(ref Collider2D collision, Colors color){
-    Debug.Log(collision.gameObject.tag.ToUpper() + " " + color.ToString());
+
+    public void SaveHighScore() {
+        // Get the current high score or zero incase of no record:
+        int currentHighScore = PlayerPrefs.GetInt("HighScore", 0);
+
+        if (currentHighScore < mScore)
+        {
+            // In case the achived score is greater than the current high score:
+            PlayerPrefs.SetInt("HighScore", mScore);
+            Debug.Log("Updating high score from " + currentHighScore +
+                "to " + mScore + ".");
+        }
+    }
+
+    public void collided(ref Collider2D collision, Colors color){
+        Debug.Log(collision.gameObject.tag.ToUpper() + " " + color.ToString());
         if (collision.gameObject.tag.ToUpper() != color.ToString())
         {
              if(!hasAlreadyDied){
@@ -86,16 +104,11 @@ public void collided(ref Collider2D collision, Colors color){
             Invoke("loadDeathMenu", 1.5f);
              }
         }
-}
-   
-  
+    }
 
     private void SetRandomColor()
     {
         int index = Random.Range(0, 4);
         playerCharacter.setColor((Enumerators.Colors)index);
     }
-
- 
- 
-}
+ }

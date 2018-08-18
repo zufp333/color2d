@@ -8,13 +8,14 @@ public class Player : MonoBehaviour {
     [SerializeField] private Color[] colors = new Color[4];
     [SerializeField] private GameManager gameManager;
     private float jumpForce = 10f;
-    private bool inputJump;
+    private bool mInputJump;
     private bool firstTouch;
     private Colors currentCol;
 
     // Use this f[or initialization
     void Start() 
-    {       
+    {
+        // The player is still until first click:
     }
     // Update is called once per frame
     void Update()
@@ -25,10 +26,11 @@ public class Player : MonoBehaviour {
 
     private void GetUserInput()
     {
-       inputJump = Input.GetKeyDown("space") || Input.GetMouseButtonDown(0);
+       mInputJump = Input.GetKeyDown("space") || Input.GetMouseButtonDown(0);
        
-       if (inputJump && firstTouch)
+       if (mInputJump && firstTouch)
         {
+            //gameObject.SetActive(true);
             firstTouch = false;
         }
     }

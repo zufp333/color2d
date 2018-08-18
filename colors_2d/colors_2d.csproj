@@ -300,10 +300,18 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CheckPointScript.cs" />
+    <Compile Include="Assets\Sceneloadet.cs" />
     <Compile Include="Assets\Scripts\ControlScript.cs" />
+    <Compile Include="Assets\Scripts\Enumerators.cs" />
     <Compile Include="Assets\Scripts\FollowPlayer.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\Rotator.cs" />
+    <Compile Include="Assets\Scripts\UI\Menu.cs" />
+    <Compile Include="Assets\Scripts\UI\QuitButtonScript.cs" />
+    <Compile Include="Assets\Scripts\UI\ScoreManager.cs" />
+    <Compile Include="Assets\Zero Rare\Retro Sound Effects\Demo\Demo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Dark.uss" />
