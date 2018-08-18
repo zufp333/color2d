@@ -1,45 +1,35 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using Enumerators;
 
 public class Player : MonoBehaviour {
-    private bool input_jump = false;
-    private bool first_touch_ = true;
-    private string current_color_ = null;
 
-    [SerializeField] float jump_force_ = 10f;
-    [SerializeField] Rigidbody2D rigid_body_;
-    [SerializeField] SpriteRenderer sprite_renderer_;
+    [SerializeField] private Rigidbody2D rigid_body_;
+    [SerializeField] private SpriteRenderer sprite_renderer_;
+    [SerializeField] private Color[] colors = new Color[4];
+    [SerializeField] private GameManager gameManager;
+    private float jumpForce = 10f;
+    private bool inputJump;
+    private bool firstTouch;
+    private Colors currentCol;
 
-    public Color color_cyan;
-    public Color color_yellow;
-    public Color color_magenta;
-    public Color color_pink;
-
-    // Use this for initialization
-    void Start()
-    {
-        // At start, choose a random color to the player:
-        SetRandomColor();
+    // Use this f[or initialization
+    void Start() 
+    {       
     }
-
     // Update is called once per frame
     void Update()
     {
-
         GetUserInput();
         MovePlayer();
     }
 
     private void GetUserInput()
     {
-        // Read user input:
-        input_jump = Input.GetKeyDown("space") || Input.GetMouseButtonDown(0);
+       inputJump = Input.GetKeyDown("space") || Input.GetMouseButtonDown(0);
        
-        if (input_jump && first_touch_)
+       if (inputJump && firstTouch)
         {
-            rigid_body_.gravityScale = 3f;
-            first_touch_ = false;
+            firstTouch = false;
         }
     }
 
@@ -47,69 +37,28 @@ public class Player : MonoBehaviour {
     {
         // Move the player according to the user's input:
 
-        if (input_jump)
-            rigid_body_.velocity = Vector2.up * jump_force_;
+        if (Input.GetKeyDown("space") || Input.GetMouseButtonDown(0))
+        {
+            rigid_body_.velocity = Vector2.up * jumpForce;
+            AudioSource soundv = GetComponent<AudioSource>();
+            soundv.Play();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        
-        if (collision.tag != current_color_) {
-
-        }
+        gameManager.collided(ref collision, currentCol);
+            
     }
 
-    private void SetRandomColor()
+    public Colors getCurrentColor()
     {
-        int index = Random.Range(0, 4);
-        current_color_ = GetColorByIndex(index);
-        SetSpriteRendererColorByIndex(index);
-
+        return currentCol;
     }
-
-    private string GetColorByIndex(int index)
+    public void setColor(Colors col)
     {
-        string chosen_color = null;
-
-        switch (index)
-        {
-            case 0:
-                chosen_color = "Cyan";
-                break;
-            case 1:
-                chosen_color = "Yellow";
-                break;
-            case 2:
-                chosen_color = "Magenta";
-                break;
-            case 3:
-                chosen_color = "Pink";
-                break;
-            default:
-                Debug.Log("Invalid color index.");
-                break;
-        }
-
-        return chosen_color;
+        currentCol = col;
+        sprite_renderer_.color = colors[(int) col];
     }
 
-    private void SetSpriteRendererColorByIndex(int index) {
-        switch (index)
-        {
-            case 0:
-                sprite_renderer_.color = color_cyan;
-                break;
-            case 1:
-                sprite_renderer_.color = color_yellow;
-                break;
-            case 2:
-                sprite_renderer_.color = color_magenta;
-                break;
-            case 3:
-                sprite_renderer_.color = color_pink;
-                break;
-            default:
-                Debug.Log("Invalid color index to render.");
-                break;
-        }
-    }
+    
 }
