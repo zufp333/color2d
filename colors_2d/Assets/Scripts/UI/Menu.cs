@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Linq;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
@@ -8,7 +7,11 @@ public class Menu : MonoBehaviour {
     private void Start()
     {
         ScoreManager scoreManagerScript = null;
-        GameObject highScoreMenu = GameObject.FindGameObjectWithTag("HighScoreMenu");
+        //GameObject highScoreMenu = GameObject.FindGameObjectWithTag("HighScoreMenu");
+        GameObject[] objects = Resources.FindObjectsOfTypeAll(typeof (GameObject)) as GameObject[];
+        GameObject highScoreMenu = (from obj in objects
+         where( obj.tag.Equals("HighScoreMenu")) select obj).Last();
+         Debug.Log(highScoreMenu.name);
 
         if (highScoreMenu != null)
             scoreManagerScript = highScoreMenu.GetComponent<ScoreManager>();

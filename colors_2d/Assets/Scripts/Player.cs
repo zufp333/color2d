@@ -15,6 +15,8 @@ public class Player : MonoBehaviour {
     // Use this f[or initialization
     void Start() 
     {
+        firstTouch = true;
+        rigid_body_.gravityScale = 0;
         // The player is still until first click:
     }
     // Update is called once per frame
@@ -30,8 +32,8 @@ public class Player : MonoBehaviour {
        
        if (mInputJump && firstTouch)
         {
-            //gameObject.SetActive(true);
             firstTouch = false;
+            rigid_body_.gravityScale = 3;
         }
     }
 
@@ -39,7 +41,7 @@ public class Player : MonoBehaviour {
     {
         // Move the player according to the user's input:
 
-        if (Input.GetKeyDown("space") || Input.GetMouseButtonDown(0))
+        if (mInputJump)
         {
             rigid_body_.velocity = Vector2.up * jumpForce;
             AudioSource soundv = GetComponent<AudioSource>();

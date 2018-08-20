@@ -14,7 +14,7 @@ public class ScoreManager : MonoBehaviour {
         mCurrentHighScore = PlayerPrefs.GetInt("HighScore", 0);
 
         GameObject highScoreTextGameObject = GameObject.FindGameObjectWithTag("HighScoreText");
-        Text highScoreText = highScoreTextGameObject.GetComponent<Text>();
+       // Text highScoreText = highScoreTextGameObject.GetComponent<Text>();
         mCurrentHighScoreText.text = mCurrentHighScore.ToString();
     }
 }

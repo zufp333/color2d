@@ -24,4 +24,8 @@ public class Sceneloadet : MonoBehaviour {
         // Load the next scene in the build qeue (scene "Level01")
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
     }
+
+	public void onCongratulateClicked(){
+SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 3);
+	}
 }

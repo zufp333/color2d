@@ -64,6 +64,7 @@
      <Compile Include="Assets\Scripts\UI\Menu.cs" />
      <Compile Include="Assets\Scripts\UI\QuitButtonScript.cs" />
      <Compile Include="Assets\Scripts\UI\ScoreManager.cs" />
+     <Compile Include="Assets\UpdateScores.cs" />
      <Compile Include="Assets\Zero Rare\Retro Sound Effects\Demo\Demo.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/Users/Sabugo/Documents/GitHub/color2d/colors_2d/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
