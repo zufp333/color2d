@@ -311,6 +311,7 @@
     <Compile Include="Assets\Scripts\UI\Menu.cs" />
     <Compile Include="Assets\Scripts\UI\QuitButtonScript.cs" />
     <Compile Include="Assets\Scripts\UI\ScoreManager.cs" />
+    <Compile Include="Assets\UpdateScores.cs" />
     <Compile Include="Assets\Zero Rare\Retro Sound Effects\Demo\Demo.cs" />
   </ItemGroup>
   <ItemGroup>

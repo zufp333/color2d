@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] ScoreManager scoreManager;
 
     private bool hasAlreadyDied = false;
-    private int currentChekPoint = 0;
+    private int currentCheckPoint = 0;
     private int score = 0;
 
 
@@ -39,18 +39,16 @@ public class GameManager : MonoBehaviour {
     {
         checkOutOfBounds();
         checkCheckPoints();
-
-
     }
 
     private void checkCheckPoints(){
-        if(checkpoints[currentChekPoint].transform.position.y < playerCharacter.transform.position.y){
-            Debug.Log("Checkpoont");
+        if(checkpoints[currentCheckPoint].transform.position.y <= playerCharacter.transform.position.y){
+            Debug.Log("Checkpoint");
             SetRandomColor();
-            currentChekPoint++;
-            score+=100; 
+            currentCheckPoint++;
+            score += 100;
             scoreText.updateScores(score);
-            if(currentChekPoint == 3){
+            if(currentCheckPoint == 3){
                 
                 congratulatePlayer();
                 }

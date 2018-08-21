@@ -16,6 +16,6 @@ public class UpdateScores : MonoBehaviour {
 		
 	}
 	public void updateScores(int score){
-scoretext.text = score.ToString();
+        scoretext.text = "SCORE:\n" + score.ToString();
 	}
 }
