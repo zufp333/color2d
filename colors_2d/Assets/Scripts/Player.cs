@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using Enumerators;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour
+{
 
     [SerializeField] private Rigidbody2D rigid_body_;
     [SerializeField] private SpriteRenderer sprite_renderer_;
@@ -13,12 +14,13 @@ public class Player : MonoBehaviour {
     private Colors currentCol;
 
     // Use this f[or initialization
-    void Start() 
+    void Start()
     {
+        // Set the player still while waiting for first touch:
         firstTouch = true;
         rigid_body_.gravityScale = 0;
-        // The player is still until first click:
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -28,9 +30,9 @@ public class Player : MonoBehaviour {
 
     private void GetUserInput()
     {
-       mInputJump = Input.GetKeyDown("space") || Input.GetMouseButtonDown(0);
-       
-       if (mInputJump && firstTouch)
+        mInputJump = Input.GetKeyDown("space") || Input.GetMouseButtonDown(0);
+
+        if (mInputJump && firstTouch)
         {
             firstTouch = false;
             rigid_body_.gravityScale = 3;
@@ -49,20 +51,21 @@ public class Player : MonoBehaviour {
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) {
-        gameManager.collided(ref collision, currentCol);
-            
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        gameManager.OnCollisionFlow(ref collision, currentCol);
+
     }
 
-    public Colors getCurrentColor()
+    public Colors GetCurrentColor()
     {
         return currentCol;
     }
-    public void setColor(Colors col)
+    public void SetColor(Colors col)
     {
         currentCol = col;
-        sprite_renderer_.color = colors[(int) col];
+        sprite_renderer_.color = colors[(int)col];
     }
 
-    
+
 }

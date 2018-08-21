@@ -19,6 +19,5 @@ public class FollowPlayer : MonoBehaviour {
 
         if (player_.position.y > transform.position.y)
             transform.position = new Vector3(transform.position.x, player_.position.y, transform.position.z);
-
     }
 }

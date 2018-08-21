@@ -802,7 +802,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc0183ad4e131d459aaabd81b067337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoretext: {fileID: 380531254}
 --- !u!1 &428773371
 GameObject:
   m_ObjectHideFlags: 0
@@ -1537,15 +1536,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336a4036fbda41245a0a2717265fea17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCharacter: {fileID: 1859629149}
-  PlayerObject: {fileID: 781221216}
-  gameCamera: {fileID: 519420031}
-  checkpoints:
+  mPlayerCharacter: {fileID: 1859629149}
+  mGameCamera: {fileID: 519420031}
+  mCheckpoints:
   - {fileID: 291835267}
   - {fileID: 2021826997}
   - {fileID: 1468950104}
-  scoreText: {fileID: 380531256}
-  scoreManager: {fileID: 781221217}
+  scoreText: {fileID: 380531254}
 --- !u!4 &864966675
 Transform:
   m_ObjectHideFlags: 0
