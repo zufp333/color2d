@@ -635,7 +635,6 @@ GameObject:
   m_Component:
   - component: {fileID: 291835270}
   - component: {fileID: 291835269}
-  - component: {fileID: 291835268}
   m_Layer: 0
   m_Name: CheckPoint
   m_TagString: Untagged
@@ -643,17 +642,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &291835268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 291835267}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b24d2fba2be40f8458ef1bf0890ce712, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &291835269
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -723,7 +711,6 @@ GameObject:
   - component: {fileID: 380531253}
   - component: {fileID: 380531255}
   - component: {fileID: 380531254}
-  - component: {fileID: 380531256}
   m_Layer: 5
   m_Name: ScoreText
   m_TagString: ScoreText
@@ -791,17 +778,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 380531252}
   m_CullTransparentMesh: 0
---- !u!114 &380531256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 380531252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cc0183ad4e131d459aaabd81b067337, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &428773371
 GameObject:
   m_ObjectHideFlags: 0
@@ -1423,6 +1399,7 @@ GameObject:
   - component: {fileID: 864966675}
   - component: {fileID: 864966674}
   - component: {fileID: 864966673}
+  - component: {fileID: 864966676}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1543,6 +1520,8 @@ MonoBehaviour:
   - {fileID: 2021826997}
   - {fileID: 1468950104}
   scoreText: {fileID: 380531254}
+  mExplosionPart: {fileID: 1509659958710874, guid: 89cde18ec84f9e248930234bec37732b,
+    type: 2}
 --- !u!4 &864966675
 Transform:
   m_ObjectHideFlags: 0
@@ -1556,6 +1535,101 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &864966676
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 864966672}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 329386c25b4a8ab4ea01da088c2cb69a, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &921558111
 GameObject:
   m_ObjectHideFlags: 0
@@ -2494,7 +2568,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1468950107}
   - component: {fileID: 1468950106}
-  - component: {fileID: 1468950105}
   m_Layer: 0
   m_Name: CheckPoint (2)
   m_TagString: Untagged
@@ -2502,17 +2575,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1468950105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1468950104}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b24d2fba2be40f8458ef1bf0890ce712, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &1468950106
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2978,7 +3040,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2021827000}
   - component: {fileID: 2021826999}
-  - component: {fileID: 2021826998}
   m_Layer: 0
   m_Name: CheckPoint (1)
   m_TagString: Untagged
@@ -2986,17 +3047,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2021826998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2021826997}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b24d2fba2be40f8458ef1bf0890ce712, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &2021826999
 SpriteRenderer:
   m_ObjectHideFlags: 0

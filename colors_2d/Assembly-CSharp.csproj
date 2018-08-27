@@ -53,19 +53,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\CheckPointScript.cs" />
-     <Compile Include="Assets\Sceneloadet.cs" />
-     <Compile Include="Assets\Scripts\ControlScript.cs" />
-     <Compile Include="Assets\Scripts\Enumerators.cs" />
-     <Compile Include="Assets\Scripts\FollowPlayer.cs" />
-     <Compile Include="Assets\Scripts\GameManager.cs" />
-     <Compile Include="Assets\Scripts\Player.cs" />
-     <Compile Include="Assets\Scripts\Rotator.cs" />
+     <Compile Include="Assets\Scripts\GamePlay\GameManager\Enumerators.cs" />
+     <Compile Include="Assets\Scripts\GamePlay\GameManager\GameManager.cs" />
+     <Compile Include="Assets\Scripts\GamePlay\Obstacles\Rotator.cs" />
+     <Compile Include="Assets\Scripts\GamePlay\Player\FollowPlayer.cs" />
+     <Compile Include="Assets\Scripts\GamePlay\Player\Player.cs" />
+     <Compile Include="Assets\Scripts\SceneManagement\ScenesManager.cs" />
      <Compile Include="Assets\Scripts\UI\Menu.cs" />
      <Compile Include="Assets\Scripts\UI\QuitButtonScript.cs" />
      <Compile Include="Assets\Scripts\UI\ScoreManager.cs" />
-     <Compile Include="Assets\UpdateScores.cs" />
-     <Compile Include="Assets\Zero Rare\Retro Sound Effects\Demo\Demo.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/Users/Sabugo/Documents/GitHub/color2d/colors_2d/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
